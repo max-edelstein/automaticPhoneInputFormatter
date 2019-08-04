@@ -3,11 +3,11 @@
 // I edited the original for clarity and so anyone can download
 // and play with
 
-var zChar = new Array(' ', '(', ')', '-', '.');
-var maxphonelength = 13;
-var phonevalue1;
-var phonevalue2;
-var cursorposition;
+let zChar = new Array(' ', '(', ')', '-', '.');
+let maxphonelength = 13;
+let phonevalue1;
+let phonevalue2;
+let cursorposition;
 
 function ParseForNumber1(object) {
   phonevalue1 = ParseChar(object.value, zChar);
@@ -157,10 +157,12 @@ function ValidatePhone(object) {
              cursorposition = cursorposition
          }
 
-         var txtRange = object.createTextRange();
-         txtRange.moveStart('character', cursorposition);
-         txtRange.moveEnd('character', cursorposition - object.value.length);
-         txtRange.select();
+
+
+      //   var txtRange = object.body.createTextRange();
+      //   txtRange.moveStart('character', cursorposition);
+      //   txtRange.moveEnd('character', cursorposition - object.value.length);
+        // txtRange.select();
      }
 
  } // end of ValidatePhone() function
