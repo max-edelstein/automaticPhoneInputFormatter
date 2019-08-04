@@ -17,17 +17,17 @@ function ParseForNumber2(object) {
   phonevalue2 = ParseChar(object.value, zChar);
 }
 
-function backspacerUP(object, e) {
-  if (e) {
-    e = e;
+function backspacerUP(object, event) {
+  if (event) {
+    event = event;
   } else {
-    e = window.event;
+    event = window.event;
   }
 
-  if (e.which) {
-    var keycode = e.which;
+  if (event.which) {
+    var keycode = event.which;
   } else {
-    var keycode = e.keyCode;
+    var keycode = event.keyCode;
   }
 
   ParseForNumber1(object);
@@ -38,17 +38,17 @@ function backspacerUP(object, e) {
 
 }; // end of backspaceUP() function
 
-function backspacerDOWN(object, e) {
-  if (e) {
-    e = e;
+function backspacerDOWN(object, event) {
+  if (event) {
+    event = event;
   } else {
-    e = window.event;
+    event = window.event;
   }
 
-  if (e.which) {
-    var keycode = e.which;
+  if (event.which) {
+    var keycode = event.which;
   } else {
-    var keycode = e.keyCode;
+    var keycode = event.keyCode;
   }
 
   ParseForNumber2(object);
