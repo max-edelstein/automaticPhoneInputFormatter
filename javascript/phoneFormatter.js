@@ -169,26 +169,29 @@ function ValidatePhone(object) {
 
 }; // end of ValidatePhone() function
 
- function ParseChar(sStr, sChar) {
-     if (sChar.length == null) {
-         zChar = new Array(sChar);
-     } else zChar = sChar;
+function ParseChar(sStr, sChar) {
 
-     for (i = 0; i < zChar.length; i++) {
-         sNewStr = '';
+  if (sChar.length == null) {
+    zChar = new Array(sChar);
+  } else zChar = sChar;
 
-         var iStart = 0;
-         var iEnd = sStr.indexOf(sChar[i]);
+  for (i = 0; i < zChar.length; i++) {
+    sNewStr = '';
 
-         while (iEnd != -1) {
-             sNewStr += sStr.substring(iStart, iEnd);
-             iStart = iEnd + 1;
-             iEnd = sStr.indexOf(sChar[i], iStart);
-         }
-         sNewStr += sStr.substring(sStr.lastIndexOf(sChar[i]) + 1, sStr.length);
+    var iStart = 0;
+    var iEnd = sStr.indexOf(sChar[i]);
 
-         sStr = sNewStr;
-     }
+    while (iEnd != -1) {
+      sNewStr += sStr.substring(iStart, iEnd);
+      iStart = iEnd + 1;
+      iEnd = sStr.indexOf(sChar[i], iStart);
+    }
 
-     return sNewStr;
- } // end of ParseChar() function
+    sNewStr += sStr.substring(sStr.lastIndexOf(sChar[i]) + 1, sStr.length);
+
+    sStr = sNewStr;
+  } //end of for loop
+
+  return sNewStr;
+
+}; // end of ParseChar() function
