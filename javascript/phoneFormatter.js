@@ -134,41 +134,40 @@ function ValidatePhone(object) {
 
   GetCursorPosition();
 
-     if (cursorposition >= 0) {
-         if (cursorposition == 0) {
-             cursorposition = 2
-         } else if (cursorposition <= 2) {
-             cursorposition = cursorposition + 1
-         } else if (cursorposition <= 5) {
-             cursorposition = cursorposition + 2
-         } else if (cursorposition == 6) {
-             cursorposition = cursorposition + 2
-         } else if (cursorposition == 7) {
-             cursorposition = cursorposition + 4
-             e1 = object.value.indexOf(')')
-             e2 = object.value.indexOf('-')
-             if (e1 > -1 && e2 > -1) {
-                 if (e2 - e1 == 4) {
-                     cursorposition = cursorposition - 1
-                 }
-             }
-         } else if (cursorposition < 11) {
-             cursorposition = cursorposition + 3
-         } else if (cursorposition == 11) {
-             cursorposition = cursorposition + 1
-         } else if (cursorposition >= 12) {
-             cursorposition = cursorposition
-         }
+  if (cursorposition >= 0) {
+    if (cursorposition == 0) {
+      cursorposition = 2;
+    } else if (cursorposition <= 2) {
+      cursorposition = cursorposition + 1;
+    } else if (cursorposition <= 5) {
+      cursorposition = cursorposition + 2;
+    } else if (cursorposition == 6) {
+      cursorposition = cursorposition + 2;
+    } else if (cursorposition == 7) {
+      cursorposition = cursorposition + 4;
+      e1 = object.value.indexOf(')');
+      e2 = object.value.indexOf('-');
 
+      if (e1 > -1 && e2 > -1) {
+        if (e2 - e1 == 4) {
+          cursorposition = cursorposition - 1;
+        }
+      }
+    } else if (cursorposition < 11) {
+      cursorposition = cursorposition + 3;
+    } else if (cursorposition == 11) {
+      cursorposition = cursorposition + 1;
+    } else if (cursorposition >= 12) {
+      cursorposition = cursorposition;
+    }
 
+    //var txtRange = object.body.createTextRange();
+    // txtRange.moveStart('character', cursorposition);
+    //   txtRange.moveEnd('character', cursorposition - object.value.length);
+    // txtRange.select();
+  }
 
-      //   var txtRange = object.body.createTextRange();
-      //   txtRange.moveStart('character', cursorposition);
-      //   txtRange.moveEnd('character', cursorposition - object.value.length);
-        // txtRange.select();
-     }
-
- } // end of ValidatePhone() function
+}; // end of ValidatePhone() function
 
  function ParseChar(sStr, sChar) {
      if (sChar.length == null) {
