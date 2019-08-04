@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+
+    <meta charset='UTF-8'>
+
+    <title>Phone Number format</title>
+
+   <!-- formatting so easy on the eyes -->
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+    <!-- This script is based on the javascript code of Roman Feldblum (web.developer@programmer.net) -->
+    <!-- Original script : http://javascript.internet.com/forms/format-phone-number.html -->
+    <!-- Original script is revised by Eralper Yilmaz (http://www.eralper.com) -->
+    <!-- Revised script : http://www.kodyaz.com -->
+   <script src='javascript/phoneFormatter.js'></script>
+
+</head>
+
+<body>
+
+ <input id='bar' class='inputForm' pattern='[\(]\d{3}[\)]\d{3}[\-]\d{4}' placeholder='Enter Phone Number' type='text' name='phone' onkeydown='javascript:backspacerDOWN(this,event);' onkeyup='javascript:backspacerUP(this,event);'>
+
+</body>
+</html>
