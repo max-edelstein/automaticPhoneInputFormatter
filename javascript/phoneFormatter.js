@@ -4,7 +4,10 @@
 // and play with
 
 let zChar = new Array(' ', '(', ')', '-', '.');
+
+// maximum allowed length of string
 let maxphonelength = 13;
+
 let phonevalue1;
 let phonevalue2;
 let cursorposition;
@@ -18,16 +21,25 @@ function ParseForNumber2(object) {
 }
 
 function backspacerUP(object, event) {
+
   if (event) {
+
     event = event;
+
   } else {
+
     event = window.event;
+
   }
 
   if (event.which) {
+
     var keycode = event.which;
+
   } else {
+
     var keycode = event.keyCode;
+
   }
 
   ParseForNumber1(object);
@@ -39,16 +51,25 @@ function backspacerUP(object, event) {
 }; // end of backspaceUP() function
 
 function backspacerDOWN(object, event) {
+
   if (event) {
+
     event = event;
+
   } else {
+
     event = window.event;
+
   }
 
   if (event.which) {
+
     var keycode = event.which;
+
   } else {
+
     var keycode = event.keyCode;
+
   }
 
   ParseForNumber2(object);
@@ -85,23 +106,31 @@ function ValidatePhone(object) {
   p = p.replace(/[^\d]*/gi, '');
 
   if (p.length < 3) {
+
     object.value = p;
+
   } else if (p.length == 3) {
+
     pp = p;
     d4 = p.indexOf('(');
     d5 = p.indexOf(')');
 
     if (d4 == -1) {
+
       pp = '(' + pp;
+
     }
 
     if (d5 == -1) {
+
       pp = pp + ')';
+
     }
 
     object.value = pp;
 
   } else if (p.length > 3 && p.length < 7) {
+
     p = '(' + p;
     l30 = p.length;
     p30 = p.substring(0, 4);
@@ -113,6 +142,7 @@ function ValidatePhone(object) {
     object.value = pp;
 
   } else if (p.length >= 7) {
+
     p = '(' + p;
     l30 = p.length;
     p30 = p.substring(0, 4);
@@ -130,35 +160,56 @@ function ValidatePhone(object) {
 
     object.value = ppp.substring(0, maxphonelength);
 
-  }
+  } // end of else if
 
   GetCursorPosition();
 
   if (cursorposition >= 0) {
+
     if (cursorposition == 0) {
+
       cursorposition = 2;
+
     } else if (cursorposition <= 2) {
+
       cursorposition = cursorposition + 1;
+
     } else if (cursorposition <= 5) {
+
       cursorposition = cursorposition + 2;
+
     } else if (cursorposition == 6) {
+
       cursorposition = cursorposition + 2;
+
     } else if (cursorposition == 7) {
+
       cursorposition = cursorposition + 4;
       e1 = object.value.indexOf(')');
       e2 = object.value.indexOf('-');
 
       if (e1 > -1 && e2 > -1) {
+
         if (e2 - e1 == 4) {
+
           cursorposition = cursorposition - 1;
+
         }
+
       }
+
     } else if (cursorposition < 11) {
+
       cursorposition = cursorposition + 3;
+
     } else if (cursorposition == 11) {
+
       cursorposition = cursorposition + 1;
+
     } else if (cursorposition >= 12) {
+
       cursorposition = cursorposition;
+
     }
 
     //var txtRange = object.body.createTextRange();
@@ -172,24 +223,34 @@ function ValidatePhone(object) {
 function ParseChar(sStr, sChar) {
 
   if (sChar.length == null) {
+
     zChar = new Array(sChar);
-  } else zChar = sChar;
+
+  } else {
+
+    zChar = sChar;
+
+  }
 
   for (i = 0; i < zChar.length; i++) {
+
     sNewStr = '';
 
     var iStart = 0;
     var iEnd = sStr.indexOf(sChar[i]);
 
     while (iEnd != -1) {
+
       sNewStr += sStr.substring(iStart, iEnd);
       iStart = iEnd + 1;
       iEnd = sStr.indexOf(sChar[i], iStart);
+
     }
 
     sNewStr += sStr.substring(sStr.lastIndexOf(sChar[i]) + 1, sStr.length);
 
     sStr = sNewStr;
+
   } //end of for loop
 
   return sNewStr;
