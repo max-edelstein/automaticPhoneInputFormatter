@@ -69,10 +69,13 @@ function GetCursorPosition() {
 
         cursorposition = i;
         bool = true;
-      }
-    }
 
-  }
+      }
+
+    } // end of outer if
+
+  } // end of for
+
 }; // end of GetCursorPosition() function
 
 function ValidatePhone(object) {
